@@ -483,12 +483,8 @@ console.log(movements);
 // return > 0, B, A  (switch order)
 
 const idek = movements.sort((a, b) => {
-    return a - b
+    if (a > b) return 2;
+    if (b > a) return -1;
 });
 
 console.log(idek);
-
-const me = ['Promise', 'Heritage', 'Feranmi'];
-
-const index = me.findIndex(me => me === 'Promise');
-console.log(index);
