@@ -485,6 +485,8 @@ console.log(movements);
 const idek = movements.sort((a, b) => {
     if (a > b) return 2;
     if (b > a) return -1;
-});
+}); 
 
-console.log(idek);
+// FINDING IT HARD TO UNDERSTAND SORTING, WOULD COME BACK TO IT AND RE-WATCH VIDEO
+
+ 
