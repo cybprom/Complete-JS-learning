@@ -64,10 +64,13 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-const displayMovements = function (movements) {
-    containerMovements.innerHTML = '';
+const displayMovements = function (movements, sort = false) {
+    containerMovements.innerHTML = ''; // .textContent = 0
 
-    movements.forEach((mov, i) => {
+    const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+
+    movs.forEach((mov, i) => {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
 
         const html = `
@@ -210,6 +213,12 @@ btnClose.addEventListener('click', (e) => {
     inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+btnSort.addEventListener('click', (e) => {
+    e.preventDefault();
+    displayMovements(currentAccount.movements, !sorted); 
+    sorted = !sorted;
+});
 
 
 /////////////////////////////////
@@ -470,6 +479,8 @@ console.log(overallBalance2);
 
 ///////////////
 // Sorting
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300]; 
+
 
 // With Strings
 const owners = ['Jonas', 'Zach', 'Promise', 'Adam', 'Ilerioluwa'];
@@ -482,10 +493,23 @@ console.log(movements);
 // return < 0, A, B (keep order)
 // return > 0, B, A  (switch order)
 
-const idek = movements.sort((a, b) => {
-    if (a > b) return 2;
-    if (b > a) return -1;
-}); 
+// Ascending
+// movements.sort((a, b) => {
+//     if (a > b) return 1;
+//     if (b > a) return -1;
+// });
+
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//     if (a > b) return -1;
+//     if (b > a) return 1;
+// });
+
+movements.sort((a, b) => b - a);
+console.log(movements);
 
 // FINDING IT HARD TO UNDERSTAND SORTING, WOULD COME BACK TO IT AND RE-WATCH VIDEO
 
