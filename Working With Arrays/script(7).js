@@ -462,6 +462,7 @@ console.log(movements.filter(deposit));
 */
 
 // FLAT
+/*
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat()); // [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -475,12 +476,11 @@ console.log(overallBalance);
 // FlatMap
 const overallBalance2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
 console.log(overallBalance2);
-
+*/
 
 ///////////////
 // Sorting
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300]; 
-
+/*
 
 // With Strings
 const owners = ['Jonas', 'Zach', 'Promise', 'Adam', 'Ilerioluwa'];
@@ -511,6 +511,5 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 console.log(movements);
 
-// FINDING IT HARD TO UNDERSTAND SORTING, WOULD COME BACK TO IT AND RE-WATCH VIDEO
 
- 
+*/
