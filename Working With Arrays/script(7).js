@@ -548,3 +548,22 @@ labelBalance.addEventListener('click', () => {
 
     const movementsUI2 = [...document.querySelectorAll('.movements__value')];
 });
+
+
+
+// ARRAY METHODS PRACTICE
+
+// 1.
+const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+
+console.log(bankDepositSum);
+
+// 2. Count how many deposits there have been in the bank with at least $1000 
+
+// const numDeposits1000 = accounts.flatMap(acc => acc.movements).filter(mov => mov >= 1000).length;
+
+const numDeposits1000 = accounts.flatMap(acc => acc.movements).reduce((count, cur) => cur >= 1000 ? ++count : count, 0)
+
+console.log(numDeposits1000);
+
+// 3. Create a new object instead of number or string
