@@ -738,15 +738,16 @@ const dogs = [
 ];
 
 
-// 1. 
+
+// Re-try
+// 1.
 // Forumla: recommendedFood = weight ** 0.75 * 28. (The result is in grams of food, and the weight needs to be in kg)
-dogs.forEach(dog => dog.recFood = Math.floor(dog.weight ** 0.75 * 28));
+dogs.forEach(dog => dog.recFood = Math.trunc(dog.weight ** 0.75 * 28));
 console.log(dogs);
+
 
 // 2.
 const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
-console.log(dogSarah);
-
 console.log(`Sarah's dog is eating too ${dogSarah.curFood > dogSarah.recFood ? 'much' : 'little'}`);
 
 // 3.
@@ -756,14 +757,14 @@ console.log(ownersEatTooMuch);
 const ownersEatTooLittle = dogs.filter(dog => dog.curFood < dog.recFood).flatMap(dog => dog.owners);
 console.log(ownersEatTooLittle);
 
+
 // 4.
 // Matilda and Alice and Bob's dogs eat too much!
 // Sarah and John and Michael's dogs eat too little!
 console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
 
-
-// 5.
+// 5. 
 console.log(dogs.some(dog => dog.curFood === dog.recFood));
 
 
