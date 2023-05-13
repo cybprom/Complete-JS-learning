@@ -257,7 +257,7 @@ btnSort.addEventListener("click", function (e) {
 
 // Converting And Checking Numbers
 // All numbers are represented internally as floating point number e.g in decimal
-// Numbers are stored in binary form
+// Numbers are stored in binary form.
 
 console.log(23 === 23.0);
 
@@ -290,6 +290,7 @@ console.log(Number.isFinite("20")); // false
 console.log(Number.isFinite(+"20X")); // false
 console.log(Number.isFinite(23 / 0)); // false
 
+// Checking if is Integer
 console.log(Number.isInteger(23));
 console.log(Number.isInteger(23.0));
 console.log(Number.isInteger(23 / 0));
