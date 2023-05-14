@@ -259,6 +259,7 @@ btnSort.addEventListener("click", function (e) {
 // All numbers are represented internally as floating point number e.g in decimal
 // Numbers are stored in binary form.
 
+/*
 console.log(23 === 23.0);
 
 // Base 10 - 0 to 9
@@ -294,3 +295,25 @@ console.log(Number.isFinite(23 / 0)); // false
 console.log(Number.isInteger(23));
 console.log(Number.isInteger(23.0));
 console.log(Number.isInteger(23 / 0));
+
+*/
+
+///////////////////
+// Math And Rounding
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+
+// Get Max value
+console.log(Math.max(5, 18, 23, 11, 2));
+console.log(Math.max(5, 18, "23", 11, 2)); // It does type coercion
+console.log(Math.max(5, 18, "23px", 11, 2));
+
+// Get min value
+console.log(Math.min(5, 18, 23, 11, 2));
+// console.log(Math.min(5, 18, "23", 11, 2));
+// console.log(Math.min(5, 18, "23px", 11, 2));
+
+console.log(Math.PI * Number.parseFloat("10px") ** 2);
+
+console.log(Math.trunc(Math.random() * 6) + 1);
