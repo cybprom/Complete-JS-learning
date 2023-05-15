@@ -349,6 +349,7 @@ console.log(+(2.345).toFixed(2));
 
 /////////////////
 // The Remainder Operator
+/*
 
 console.log(5 % 2);
 console.log(8 % 3);
@@ -363,6 +364,20 @@ labelBalance.addEventListener("click", () => {
     // 0, 2, 4, 6, 8
     if (i % 2 === 0) row.style.backgroundColor = "orange";
     // number divisible by 3.. 0, 3, 6, 9
-    if (i % 3 === 0) row.style.backgroundColor = "blue";
+    if (i % 3 === 0) row.style.backgroundColor = "grey";
   });
 });
+*/
+
+/////////////////
+// Numeric Separators
+
+// Normally we'd have written it like this -> 287,460,000,000
+// Should only be used when writing um. like below
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const price = 345_99;
+console.log(price);
+
+const tranfeFee = 15_00;
