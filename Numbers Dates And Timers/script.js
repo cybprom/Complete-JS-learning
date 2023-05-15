@@ -415,6 +415,7 @@ console.log(10 / 3);
 // Creating Dates
 
 // Create a date
+/*
 //  Method 1
 const now = new Date();
 console.log(now);
@@ -430,7 +431,27 @@ console.log(new Date(2037, 10, 31)); // Auto corrects date
 // Method 4
 console.log(new Date(0));
 console.log(3 * 24 * 60 * 60 * 1000);
-
-// Working with dates
+*/
 
 // Date are just another special type of object, therefore they have methods we can use on them
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear()); // Always use get full year
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime()); // 2142253380000
+
+console.log(new Date(2142253380000));
+
+// Get timestamp for the exact moment
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
