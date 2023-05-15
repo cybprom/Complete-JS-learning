@@ -16,14 +16,14 @@ const account1 = {
   pin: 1111,
 
   movementsDates: [
-    "2019-11-18T21:31:17.178Z",
-    "2019-12-23T07:42:02.383Z",
-    "2020-01-28T09:15:04.904Z",
-    "2020-04-01T10:17:24.185Z",
-    "2020-05-08T14:11:59.604Z",
-    "2023-05-09T17:01:17.194Z",
-    "2023-05-11T23:36:17.929Z",
-    "2023-05-14T10:51:36.790Z",
+    "2020-11-18T21:31:17.178Z",
+    "2020-12-23T07:42:02.383Z",
+    "2021-01-28T09:15:04.904Z",
+    "2022-04-01T10:17:24.185Z",
+    "2022-05-08T14:11:59.604Z",
+    "2023-05-10T17:01:17.194Z",
+    "2023-05-12T23:36:17.929Z",
+    "2023-05-15T10:51:36.790Z",
   ],
   currency: "EUR",
   locale: "pt-PT", // de-DE
@@ -88,6 +88,7 @@ const formatMovementDate = function (date) {
   const daysPassed = calcDaysPassed(new Date(), date);
   console.log(daysPassed);
 
+  if (daysPassed === 0.1) return "Few minutes ago";
   if (daysPassed === 0) return "Today";
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
