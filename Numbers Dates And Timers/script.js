@@ -308,7 +308,7 @@ console.log(8 ** (1 / 3));
 // Get Max value
 console.log(Math.max(5, 18, 23, 11, 2));
 console.log(Math.max(5, 18, "23", 11, 2)); // It does type coercion
-console.log(Math.max(5, 18, "23px", 11, 2));
+console.log(Math.max(5, 18, "23px", 11, 2)); // NaN
 
 // Get min value
 console.log(Math.min(5, 18, 23, 11, 2));
@@ -374,10 +374,37 @@ labelBalance.addEventListener("click", () => {
 
 // Normally we'd have written it like this -> 287,460,000,000
 // Should only be used when writing um. like below
+/*
 const diameter = 287_460_000_000;
 console.log(diameter);
 
 const price = 345_99;
 console.log(price);
 
-const tranfeFee = 15_00;
+const tranferFee = 15_00;
+*/
+
+////////////
+// Working with BIGINT
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+
+console.log(6647378465936745356436456346n);
+console.log(BigInt(66473784));
+
+// Cannot mix big int and other types
+const huge = 23623466478583457446457n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// Exceptions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+
+console.log(huge + " is REALLY big!!");
+
+// Divisions
+console.log(11n / 3n);
+console.log(10 / 3);
