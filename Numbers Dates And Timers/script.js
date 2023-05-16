@@ -559,3 +559,30 @@ const Content = new Intl.DateTimeFormat(
   options
 ).format(now);
 */
+
+////////////////
+// Internationalizing Numbers
+
+const num = 3884764.23;
+
+const options = {
+  // style: "unit",
+  // style: percent'
+  style: "currency",
+  unit: "celsius",
+  currency: "EUR", // not defined by the locale
+  // useGrouping: false,
+};
+
+console.log("US:     ", new Intl.NumberFormat("en-US", options).format(num));
+console.log(
+  "Germany:     ",
+  new Intl.NumberFormat("de-DE", options).format(num)
+);
+console.log("Syria:     ", new Intl.NumberFormat("ar-Sy", options).format(num));
+console.log("UK:     ", new Intl.NumberFormat("en-GB", options).format(num));
+console.log(
+  "Browser:     ",
+  new Intl.NumberFormat(navigator.language),
+  options.format(num)
+);
