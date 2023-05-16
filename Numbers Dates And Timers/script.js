@@ -196,10 +196,6 @@ currentAccount = account1;
 updateUI(currentAccount);
 containerApp.style.opacity = "100";
 
-// Experimenting API
-
-// day/month/year
-
 btnLogin.addEventListener("click", function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -288,14 +284,16 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add Loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add Loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = "";
 });
@@ -595,3 +593,22 @@ console.log(
   "Browser:     ",
   new Intl.NumberFormat(navigator.language, options).format(num)
 );
+
+///////////////////
+// Timers: SetTimeOut And SetInterval
+// SetTimeOut - runs just once after a definned time
+// SetInterval - runs basically forever until we stop it
+
+// setTimeout(() => console.log("Here is your pizza 🍕"), 3000);
+// console.log("Waiting....");
+
+// Passing argument
+const ingredients = ["olives", "spinach"];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`),
+  3000,
+  ...ingredients
+);
+console.log("Waiting....");
+
+if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
