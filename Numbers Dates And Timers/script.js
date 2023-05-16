@@ -599,6 +599,8 @@ console.log(
 // SetTimeOut - runs just once after a definned time
 // SetInterval - runs basically forever until we stop it
 
+// setTimeout
+
 // setTimeout(() => console.log("Here is your pizza 🍕"), 3000);
 // console.log("Waiting....");
 
@@ -612,3 +614,11 @@ const pizzaTimer = setTimeout(
 console.log("Waiting....");
 
 if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
+
+// setInterval
+setInterval(function () {
+  const now = new Date();
+  console.log(
+    `The time is: ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+  );
+}, 1000);
