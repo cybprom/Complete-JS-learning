@@ -3,6 +3,31 @@
 const btn = document.querySelector(".btn-country");
 const countriesContainer = document.querySelector(".countries");
 
+const renderCountry = function (data, className = "") {
+  const currency = Object.values(data.currencies)[0].name;
+  const html = `
+  <article class="country ${className}">
+          <img class="country__img" src="${data.flags.svg}" />
+          <div class="country__data">
+            <h3 class="country__name">${data.name.common}</h3>
+            <h4 class="country__region">${data.region}</h4>
+            <p class="country__row"><span>👫</span>${Number(
+              data.population / 1000000
+            ).toFixed(1)}M people</p>
+            <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
+            <p class="country__row"><span>💰</span>${currency}</p>
+          </div>
+    </article>
+  `;
+  countriesContainer.insertAdjacentHTML("beforeend", html);
+  //   countriesContainer.style.opacity = 1;
+};
+
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText("beforeend", msg);
+  //   countriesContainer.style.opacity = 1;
+};
+
 ///////////////////////////////////////
 // Old School way of doing XML http request
 /*
@@ -38,26 +63,6 @@ const getCountryData = function (country) {
 getCountryData("nigeria");
 getCountryData("usa");
 */
-
-const renderCountry = function (data, className = "") {
-  const currency = Object.values(data.currencies)[0].name;
-  const html = `
-  <article class="country ${className}">
-          <img class="country__img" src="${data.flags.svg}" />
-          <div class="country__data">
-            <h3 class="country__name">${data.name.common}</h3>
-            <h4 class="country__region">${data.region}</h4>
-            <p class="country__row"><span>👫</span>${Number(
-              data.population / 1000000
-            ).toFixed(1)}M people</p>
-            <p class="country__row"><span>🗣️</span>${data.languages.eng}</p>
-            <p class="country__row"><span>💰</span>${currency}</p>
-          </div>
-    </article>
-  `;
-  countriesContainer.insertAdjacentHTML("beforeend", html);
-  countriesContainer.style.opacity = 1;
-};
 
 /*
 const getCountryAndNeighbour = function (country) {
@@ -120,7 +125,6 @@ getCountryAndNeighbour("usa");
 //     });
 // };
 
-// SIMPLIFIED
 const getCountryData = function (country) {
   // Country 1
   fetch(`https://restcountries.com/v3.1/name/${country}`)
@@ -134,7 +138,20 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
     })
     .then((response) => response.json())
-    .then((data) => renderCountry(data[0], "neighbour"));
+    .then((data) => renderCountry(data[0], "neighbour"))
+    .catch((err) => {
+      console.log(`${err}`);
+      renderError(`Something went wrong ⛔️⛔️ ${err.message}. Try again!`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData("nigeria");
+btn.addEventListener("click", function () {
+  getCountryData("nigeria");
+});
+
+getCountryData("sjhgfsghj");
+
+// HANDLING ERROR IN PROMISE
